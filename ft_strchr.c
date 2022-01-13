@@ -22,10 +22,7 @@ char		*ft_strchr(const char *str, int c)
 	counter = 0;
 	len = ft_strlen(str) + 1;
 	while (counter < len)
-	{
 		if (str[counter] == (char)c)
-			return (result = (char *)str + counter);
-		counter++;
-	}
+			return (result = (char *)str + counter++);
 	return (result);
 }

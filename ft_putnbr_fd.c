@@ -17,11 +17,8 @@ static int		countern(long int n)
 	int counter;
 
 	counter = 0;
-	while (n > 9)
-	{
+	while (n > 9 && ++counter)
 		n /= 10;
-		counter++;
-	}
 	return (counter);
 }
 
@@ -30,11 +27,8 @@ static int		power(long int n, int p)
 	int result;
 
 	result = 1;
-	while (p > 0)
-	{
+	while (p-- > 0)
 		result *= n;
-		p--;
-	}
 	return (result);
 }
 
@@ -47,11 +41,10 @@ static void		write_n(long int n, int fd)
 	len = countern(n);
 	while (len + 1 > 0)
 	{
-		powr = (power(10, len));
+		powr = (power(10, len--));
 		num = n / powr + '0';
 		write(fd, &num, 1);
 		n = n % powr;
-		len--;
 	}
 }
 

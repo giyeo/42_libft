@@ -18,17 +18,9 @@ static char		*joinstrings(char *pointer, char const *s1, char const *s2)
 
 	counter = 0;
 	while (*s1 != '\0')
-	{
-		pointer[counter] = *s1;
-		s1++;
-		counter++;
-	}
+		pointer[counter++] = *s1++;
 	while (*s2 != '\0')
-	{
-		pointer[counter] = *s2;
-		s2++;
-		counter++;
-	}
+		pointer[counter++] = *s2++;
 	pointer[counter] = '\0';
 	return (pointer);
 }
@@ -41,7 +33,7 @@ char			*ft_strjoin(char const *s1, char const *s2)
 
 	lens1 = ft_strlen(s1);
 	lens2 = ft_strlen(s2);
-	pointer = malloc((lens1 + lens2) + 1 * sizeof(char));
+	pointer = malloc((lens1 + lens2) + sizeof(char));
 	if (pointer == 0)
 		return (0);
 	return (joinstrings(pointer, s1, s2));

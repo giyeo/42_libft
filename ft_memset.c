@@ -19,11 +19,7 @@ void	*ft_memset(void *str, int c, size_t n)
 
 	pointer = str;
 	counter = 0;
-	while (n > 0)
-	{
-		pointer[counter] = c;
-		counter++;
-		n--;
-	}
+	while (n-- > 0)
+		pointer[counter++] = c;
 	return (str);
 }

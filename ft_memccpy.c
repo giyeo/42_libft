@@ -21,13 +21,11 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	i = 0;
 	pointerdest = (unsigned char *)dest;
 	pointersource = (unsigned char *)src;
-	while (n > 0)
+	while (n-- > 0)
 	{
 		pointerdest[i] = pointersource[i];
 		if (pointersource[i] == (unsigned char)c)
-			return (pointerdest + i + 1);
-		i++;
-		n--;
+			return (pointerdest + i++ + 1);
 	}
 	return (0);
 }
